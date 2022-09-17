@@ -1,5 +1,4 @@
 package com.bridzelab.AddressBookIO;
-
 public class PersonDetails {
     private String firstName;
     private String lastName;
@@ -90,7 +89,8 @@ public class PersonDetails {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Contacts{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
