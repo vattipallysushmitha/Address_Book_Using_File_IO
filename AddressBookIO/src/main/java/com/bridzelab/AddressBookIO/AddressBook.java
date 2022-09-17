@@ -4,9 +4,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
 public class AddressBook {
-    public List<PersonDetails> list = new ArrayList<>(); //Creating arraylist
-    Scanner scan = new Scanner(System.in); // Create a Scanner object
-    // defining a method
+    public List<PersonDetails> list = new ArrayList<>();
+    Scanner scan = new Scanner(System.in);
+
     public void operation() {
         System.out.println("Enter Number of contact you want to add");
         int count = scan.nextInt();
@@ -15,7 +15,7 @@ public class AddressBook {
             this.add();
             contactCount++;
         }
-        boolean status= true;
+        boolean status = true;
         do {
             System.out.println("Enter the number according to  requirment");
             System.out.println("Enter 1 to Add");
@@ -47,7 +47,7 @@ public class AddressBook {
             }
         } while (status);
     }
-    // defining a method
+
     public void add() {
         PersonDetails contacts = new PersonDetails();
         System.out.println("Enter the First name:");
@@ -90,13 +90,13 @@ public class AddressBook {
         this.list.add(contacts);
         print();
     }
-    // defining a method
+
     public void edit() {
         System.out.println("Enter your First name:");
         String firstName = scan.next();
 
         Iterator<PersonDetails> iterator = this.list.listIterator();
-        //Returns an iterator over the elements
+
         while (iterator.hasNext()) {
             PersonDetails contacts = iterator.next();
 
@@ -135,13 +135,12 @@ public class AddressBook {
             }
         }
     }
-    // defining a method
+
     public void delete() {
         System.out.println("Enter your First name:");
         String firstName = scan.next();
 
         Iterator<PersonDetails> iterator = list.listIterator();
-        //Returns an iterator over the elements
         while (iterator.hasNext()) {
             PersonDetails contacts = iterator.next();
 
@@ -151,9 +150,8 @@ public class AddressBook {
         }
     }
 
-    public void print() { // defining a method
+    public void print() {
         Iterator<PersonDetails> it = list.iterator();
-        //Returns an iterator over the elements
         while (it.hasNext()) {
             System.out.println(it.next());
         }
@@ -162,34 +160,22 @@ public class AddressBook {
     public void searchByCity() {
         System.out.println("Enter the city:");
         String city = scan.next();
-        //Use Filter to Filtering City
         list.stream().filter(contacts -> contacts.getCity().equalsIgnoreCase(city)).forEach(contacts -> System.out.println(contacts));
         long count = list.stream().filter(n -> n.getCity().equalsIgnoreCase(city)).count();
         System.out.println("No. of Persons in city " + city + ":" + count);
     }
 
     public void sortContactByName() {
-        //Use Sorted Operation for sort the contact by name
         list.stream().sorted(Comparator.comparing(PersonDetails::getFirstName)).forEach(System.out::println);
         System.out.println();
     }
 
-    public void sortContactByCityAndState( ) {
-        //Use Sorted Operation for sort the contact by city and state
-        list.stream().sorted(Comparator.comparing(PersonDetails::getCity)).forEach(System.out::println);//Use Comparator.comparing function
+    public void sortContactByCityAndState( ){
+        list.stream().sorted(Comparator.comparing(PersonDetails::getCity)).forEach(System.out::println);
         System.out.println();
         list.stream().sorted(Comparator.comparing(PersonDetails::getState)).forEach(System.out::println);
         System.out.println();
     }
-    private  void File_read_and_write() {
-        AddressBookIO.createFile();
-        String input = list.toString();
-        AddressBookIO.add_details_to_file(input);
-        AddressBookIO.read_details_to_file();
-    }
-
-
-    // Overriding toString() method of String class
     @Override
     public String toString() {
         return "AddressBook{" +
