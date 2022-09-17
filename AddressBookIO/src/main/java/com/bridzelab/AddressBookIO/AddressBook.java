@@ -149,18 +149,12 @@ public class AddressBook {
         }
     }
 
-    public void searchByCity() {
+    public void searchByCity()
+    {
         System.out.println("Enter the city:");
         String city = scan.next();
         list.stream().filter(contacts -> contacts.getCity().equalsIgnoreCase(city)).forEach(contacts -> System.out.println(contacts));
     }
-    public void searchByState()
-    {
-        System.out.println("Enter the State:");
-        String city = scan.next();
-        list.stream().filter(contacts -> contacts.getCity().equalsIgnoreCase(city)).forEach(contacts -> System.out.println(contacts));
-    }
-
 
     @Override
     public String toString() {
