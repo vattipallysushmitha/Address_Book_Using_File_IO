@@ -11,7 +11,8 @@ public class AddressBookMain{
         System.out.println("Enter Number of address book you want to add");
         int count = scan.nextInt();
         int i = 0;
-        while (i < count) {
+        while (i < count)
+        {
             System.out.println("Enter book name");
             String bookName = scan.next();
             AddressBook addressBook = new AddressBook();
