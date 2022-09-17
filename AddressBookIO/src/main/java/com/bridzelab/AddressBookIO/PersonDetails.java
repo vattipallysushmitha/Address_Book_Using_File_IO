@@ -90,8 +90,7 @@ public class PersonDetails {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Contacts{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
