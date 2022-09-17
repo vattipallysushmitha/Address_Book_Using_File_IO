@@ -2,8 +2,7 @@ package com.bridzelab.AddressBookIO;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
-public class AddressBook
-{
+public class AddressBook {
     public List<PersonDetails> list = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
 
